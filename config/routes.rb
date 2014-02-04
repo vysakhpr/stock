@@ -1,5 +1,18 @@
 Stock::Application.routes.draw do
-  # The priority is based upon order of creation:
+
+  devise_for :users
+
+  get "/home", :to=> 'user#home'
+
+  get "/hod", :to=> 'user#hod'
+
+  get "/head",:to => 'user#hm'
+
+  get "/lab", :to => 'user#lc'
+
+  get "/office", :to => 'user#of'
+
+  root :to => 'user#home'  # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
