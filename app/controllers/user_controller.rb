@@ -3,6 +3,7 @@ class UserController < ApplicationController
   def home
 
     if user_signed_in?
+      flash.keep(:error)
       if current_user.position=="HD"
         redirect_to "/hod"
       elsif current_user.position=="HM"
@@ -18,24 +19,28 @@ class UserController < ApplicationController
 
   def hod
     if current_user.position!= "HD"
+      flash[:error]="Access Denied"
       redirect_to root_url
     end
   end
 
   def hm
     if current_user.position!= "HM"
+      flash[:error]="Access Denied"
       redirect_to root_url
     end
   end
 
   def lc
     if current_user.position!= "LC"
+      flash[:error]="Access Denied"
       redirect_to root_url
     end
   end
 
   def of
     if current_user.position!= "OF"
+      flash[:error]="Access Denied"
       redirect_to root_url
     end
   end
