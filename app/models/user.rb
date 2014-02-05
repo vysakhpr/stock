@@ -16,6 +16,6 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username,:department,:position
   validates :username, uniqueness: :true
-  validates_inclusion_of :department, :in=> %w('CS' 'EC' 'EE' 'OF')
-  validates_inclusion_of :type, :in=> %w('HD' 'OF' 'HM'' LC')
+  validates_inclusion_of :department, :in=> %w(CS EC EE OF)
+  validates_inclusion_of :position, :in=> %w(HD OF HM LC)
 end
