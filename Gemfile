@@ -9,6 +9,9 @@ gem 'sqlite3'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'less-rails'
+gem 'will_paginate'
+gem 'rails-erd'
+gem 'kaminari'
 
 
 # Gems used only for assets and not required

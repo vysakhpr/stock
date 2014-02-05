@@ -1,0 +1,36 @@
+
+<%= form_for @office, url:office_create_path do |f| %>
+  <div><%= render 'shared/error_messages', object: f.object %></div>
+  <div> <%= f.label :date %>
+  	    <%= f.date_select :date %></div>
+
+  <div> <%= f.label :voucher_no %>
+   	    <%= f.text_field :voucher_no%></div>
+
+  <div> <%= f.label :department %>
+  	    <%= f.select :department, options_for_select([["Select One", ""],"EC","CS","EE"]) %></div>
+
+  <div> <%= f.label :name %>
+  	    <%= f.text_field :name %></div>
+
+  <div> <%= f.label :description %>
+  	    <%= f.text_area :description%></div>
+
+  <div> <%= f.label :price_unit %>
+ 		<%= f.text_field :price_unit %></div>
+
+  
+  <div> <%= f.label :quantity %>
+  	    <%= f.number_field :quantity %></div>
+
+
+  <div> <%= f.label :total_price %>
+  	    <%= f.text_field :total_price %></div>
+
+
+  <div><%= f.submit "Add" %></div>
+
+  <%= paginate @offices %>
+
+<%end%>
+

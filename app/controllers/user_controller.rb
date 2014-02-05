@@ -1,9 +1,9 @@
 class UserController < ApplicationController
+  require 'will_paginate/array'
   before_filter :authenticate_user!, :except=>[:home]
   def home
-
+    flash.keep
     if user_signed_in?
-      flash.keep(:error)
       if current_user.position=="HD"
         redirect_to "/hod"
       elsif current_user.position=="HM"
@@ -43,5 +43,7 @@ class UserController < ApplicationController
       flash[:error]="Access Denied"
       redirect_to root_url
     end
+    @offices = Office.all
+    
   end
 end

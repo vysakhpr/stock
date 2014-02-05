@@ -1,5 +1,11 @@
 Stock::Application.routes.draw do
 
+  get "office/new", :to=> 'office#new'
+
+  delete "office/delete", :to => "office#delete"
+
+  post "office/create", :to => 'office#create'
+
   devise_for :users
 
   get "/home", :to=> 'user#home'

@@ -1,3 +1,7 @@
 class Office < ActiveRecord::Base
-  attr_accessible :date, :department, :description, :name, :price, :quantity, :total_price, :voucher_no
+  has_many :labs
+  attr_accessible :date, :department, :description, :name, :price_unit, :quantity, :total_price, :voucher_no
+
+  validates_presence_of :date,:department,:description,:name,:price_unit,:quantity,:total_price,:voucher_no
+  validates_uniqueness_of :voucher_no
 end
