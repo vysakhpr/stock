@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-  require 'will_paginate/array'
+  helper_method :sort_column, :sort_direction
   before_filter :authenticate_user!, :except=>[:home]
   def home
     flash.keep
@@ -43,7 +43,17 @@ class UserController < ApplicationController
       flash[:error]="Access Denied"
       redirect_to root_url
     end
-    @offices = Office.all
+    @offices = Office.order(sort_column + ' ' + sort_direction)
     
   end
+
+
+  private
+    def sort_column
+      Office.column_names.include?(params[:sort]) ? params[:sort] : "date"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
 end
