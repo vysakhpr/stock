@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140204085045) do
+ActiveRecord::Schema.define(:version => 20140206170237) do
 
   create_table "labs", :force => true do |t|
     t.integer  "office_id"
     t.integer  "quantity"
-    t.integer  "quantity_used"
-    t.string   "status"
+    t.integer  "quantity_used", :default => 0
+    t.string   "status",        :default => "P"
     t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "messages", :force => true do |t|

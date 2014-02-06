@@ -1,5 +1,9 @@
 Stock::Application.routes.draw do
 
+  get "lab/new", :to=> 'lab#new'
+
+  post "lab/create", :to => 'lab#create'
+
   get "office/new", :to=> 'office#new'
 
   delete "office/delete", :to => "office#delete"

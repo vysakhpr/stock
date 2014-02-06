@@ -22,6 +22,14 @@ class UserController < ApplicationController
       flash[:error]="Access Denied"
       redirect_to root_url
     end
+    @hods=[]
+    @offices=Office.find(:all, :conditions=>{:department=> current_user.department})
+    @offices.each do |t|
+      unless t.labs.exists?
+        @hods<<t
+      end
+    end
+
   end
 
   def hm
