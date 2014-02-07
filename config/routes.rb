@@ -1,5 +1,9 @@
 Stock::Application.routes.draw do
 
+  get "labid/new",:to=> "labid#new"
+
+  post "labid/create",:to=> "labid#create"
+
   get "lab/new", :to=> 'lab#new'
 
   post "lab/new/:id", :to => 'lab#new'
