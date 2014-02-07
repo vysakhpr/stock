@@ -1,12 +1,16 @@
 <%= @stock.name %>
 <%= form_for @lab, url:lab_create_path do |f| %>
   <div><%= render 'shared/error_messages', object: f.object %></div>
+
+  <div> <%= f.hidden_field :office_id, :value=>@stock.id %>
   
   <div> <%= f.label :quantity %>
   	    <%= f.number_field :quantity %></div>
 
   <div> <%= f.label :quantity_used %>
-  	    <%= f.number_field :quantity %></div>
+  	    <%= f.number_field :quantity_used %></div>
+
+   <div><%= f.collection_select :labid_id,  current_user.labids.all, :id, :name, :prompt=>true %>
 
 
   <div><%= f.submit "Add" %></div>
