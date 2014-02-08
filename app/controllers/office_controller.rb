@@ -10,7 +10,7 @@ class OfficeController < ApplicationController
   		flash[:notice]="Saved"
   		redirect_to root_url
     else
-    	flash[:error]="Error"
+    	flash[:error] = @office.errors.full_messages.to_sentence
     	redirect_to office_new_path
     end
 

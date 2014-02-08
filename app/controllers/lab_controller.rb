@@ -15,7 +15,7 @@ class LabController < ApplicationController
   			redirect_to root_url
   		end	
   	else
-  		flash[:error]="Fill All Fields"
+  		flash[:error] = @lab.errors.full_messages.to_sentence
   		redirect_to :back
    	end
   end

@@ -9,10 +9,9 @@ class LabidController < ApplicationController
     	flash[:success]="Added Lab Successfully"
     	redirect_to root_url
     else
-    	flash[:success]="Oops Something went wrong.."
-    	redirect_to "labid/new"
+    	flash[:error]= @labid.errors.full_messages.to_sentence
+    	redirect_to :back
     end
-    	
 
   end
 

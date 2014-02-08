@@ -1,6 +1,7 @@
 
 <%= form_for @office, url:office_create_path do |f| %>
-  <div><%= render 'shared/error_messages', object: f.object %></div>
+ <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
   <div> <%= f.label :date %>
   	    <%= f.date_select :date %></div>
 
@@ -17,15 +18,15 @@
   	    <%= f.text_area :description%></div>
 
   <div> <%= f.label :price_unit %>
- 		<%= f.text_field :price_unit %></div>
+ 		<%= f.text_field :price_unit, :id=> "price_unit", :class=>"calc" %></div>
 
   
   <div> <%= f.label :quantity %>
-  	    <%= f.number_field :quantity %></div>
+  	    <%= f.number_field :quantity, id: "quantity", :class=> "calc" %></div>
 
 
   <div> <%= f.label :total_price %>
-  	    <%= f.text_field :total_price %></div>
+  	    <%= f.text_field :total_price, id: "total_price" %></div>
 
 
   <div><%= f.submit "Add" %></div>
