@@ -14,6 +14,7 @@
 		 <th><%= sortable "price_unit","Price Unit" %></th>
 		 <th><%= sortable "quantity","Quantity" %></th>
 		 <th><%= sortable "total_price","Total Price" %></th>
+		 <th>Quantity Remaining</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,6 +28,7 @@
 				<td><%=t.price_unit%></td>
 				<td><%=t.quantity%></td>
 				<td><%=t.total_price%></td>
+				<td><%=t.quantity-t.quantity_assigned%></td>
 			</tr>
 		<%end%>  
 	</tbody>

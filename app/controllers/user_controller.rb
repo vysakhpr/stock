@@ -28,6 +28,9 @@ class UserController < ApplicationController
       unless t.labs.exists?
         @hods<<t
       end
+      if (t.labs.exists?)&&(t.quantity_assigned<t.quantity)
+        @hods<<t
+      end
     end
 
   end
