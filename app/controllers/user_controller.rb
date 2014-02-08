@@ -23,7 +23,7 @@ class UserController < ApplicationController
       redirect_to root_url
     end
     @hods=[]
-    @offices=Office.find(:all, :conditions=>{:department=> current_user.department})
+    @offices=Office.find(:all, :conditions=>{:department=> current_user.department}, :order=>sort_column + ' ' + sort_direction)
     @offices.each do |t|
       unless t.labs.exists?
         @hods<<t
@@ -32,7 +32,6 @@ class UserController < ApplicationController
         @hods<<t
       end
     end
-
   end
 
   def hm
