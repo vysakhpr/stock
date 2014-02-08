@@ -23,12 +23,14 @@
 				<td><%=t.date%></td>
 				<td><%=t.voucher_no%></td>
 				<td><%=t.department%></td>
-				<td><%=link_to t.name, "lab/new/#{t.id}", :method => :post %></td>
+				<td><%=t.name %></td>
 				<td><%=t.description%></td>
 				<td><%=t.price_unit%></td>
 				<td><%=t.quantity%></td>
 				<td><%=t.total_price%></td>
 				<td><%=t.quantity-t.quantity_assigned%></td>
+				<td><%= link_to "Assign","lab/new/#{t.id}", :method=> :post, :class=>"btn btn-info btn-mini" %></td> 
+				<td><%= link_to "Details","office/show/#{t.id}", :method=> :post, :class=>"btn btn-info btn-mini" %></td> 
 			</tr>
 		<%end%>  
 	</tbody>

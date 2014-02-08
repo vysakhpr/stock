@@ -10,6 +10,8 @@ Stock::Application.routes.draw do
 
   post "lab/create", :to => 'lab#create'
 
+  post "office/show/:id", :to=>'office#show'
+
   get "office/new", :to=> 'office#new'
 
   delete "office/delete", :to => "office#delete"

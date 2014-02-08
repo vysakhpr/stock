@@ -1,7 +1,12 @@
 class OfficeController < ApplicationController
   def new
   	
-  	@office=Office.new
+  	@office = Office.new
+  end
+
+  def show
+     @office=Office.find(params[:id])
+     @labs=@office.labs
   end
 
   def create
